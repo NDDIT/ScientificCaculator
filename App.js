@@ -1,20 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Calculator from "./src/Calculator";
+import { ThemeContextProvider } from './src/ThemeContext';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default ({showLiveResult, scientific, customize, theme, haptics, history, showTooltip}) => {
+    return (
+        <ThemeContextProvider>
+            <Calculator showLiveResult="true" scientific="true" customize={customize} theme={theme} haptics={haptics} history={history} showTooltip="true"/>
+        </ThemeContextProvider>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
